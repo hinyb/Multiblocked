@@ -40,16 +40,9 @@ jobs:
         MESSAGE=$(ls build/libs/* | grep sources.jar -v)
         echo file_path=$MESSAGE >> $GITHUB_OUTPUT
 
-    - name: Upload to CurseForge
-      uses: itsmeow/curseforge-upload@v3
+    - name : upload apk
+      uses: actions/upload-artifact@master
+      if: always()
       with:
-        token: ${{ secrets.CURSEFORGE_TOKEN }}
-        project_id: 604054
-        game_endpoint: minecraft
-        file_path: ${{ steps.var.outputs.file_path }}
-        changelog: See recent commits [here](https://github.com/Low-Drag-MC/Multiblocked/commits/${{ github.sha }}). This is only marked as a beta release so CurseForge shows it on the front page.
-        changelog_type: markdown
-        # 1.12.2, Java 8
-        game_versions: "Minecraft 1.18:1.18.2,Java 17,Forge"
-        release_type: beta
-        relations: ldlib:requiredDependency,geckolib:optionalDependency,jei:optionalDependency,roughly-enough-items:optionalDependency
+        name: xupdate_apk
+        path: ${{ github.workspace }}/app/build/outputs/apk/release

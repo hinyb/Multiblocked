@@ -34,7 +34,7 @@ jobs:
     - name: Gradle Build Action
       uses: gradle/gradle-build-action@v2.4.2
       with:
-        arguments: build publish
+        arguments: build
 
     - name: Get file name
       id: var

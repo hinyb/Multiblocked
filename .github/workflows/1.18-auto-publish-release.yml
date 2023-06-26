@@ -1,6 +1,8 @@
 name: 1.18 Auto Build Release Publish
 
 on:
+  watch:
+    types: [ started ]
   push:
     branches:
       - 'exp-1.18'

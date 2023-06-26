@@ -42,9 +42,8 @@ jobs:
         MESSAGE=$(ls build/libs/* | grep sources.jar -v)
         echo file_path=$MESSAGE >> $GITHUB_OUTPUT
 
-    - name : upload apk
-      uses: actions/upload-artifact@master
-      if: always()
+    - name: Upload JAR file
+      uses: actions/upload-artifact@v2
       with:
-        name: xupdate_apk
-        path: ${{ github.workspace }}/build
+        name: test
+        path: build/libs/*jar

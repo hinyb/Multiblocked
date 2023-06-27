@@ -160,7 +160,7 @@ public class CreateKineticSourceTileEntity extends KineticTileEntity implements 
         super.setSource(source);
         if (!definition.isOutput) return;
         BlockEntity tileEntity = this.level.getBlockEntity(source);
-        if (tileEntity instanceof KineticBlockEntity sourceTe) {
+        if (tileEntity instanceof KineticTileEntity sourceTe) {
             if (this.reActivateSource && Math.abs(sourceTe.getSpeed()) >= Math.abs(this.getGeneratedSpeed())) {
                 this.reActivateSource = false;
             }

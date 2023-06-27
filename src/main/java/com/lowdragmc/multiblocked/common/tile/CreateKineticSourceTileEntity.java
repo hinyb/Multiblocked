@@ -35,7 +35,7 @@ import java.util.Set;
  * @implNote CreateKineticTileEntity
  */
 
-public class CreateKineticSourceTileEntity extends KineticBlockEntity implements IPartComponent {
+public class CreateKineticSourceTileEntity extends KineticTileEntity implements IPartComponent {
 
     public final CreatePartDefinition definition;
     protected IMultiblockedRenderer currentRenderer;
